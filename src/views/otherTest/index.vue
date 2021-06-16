@@ -3,12 +3,14 @@
  * @version: 
  * @Author: sueRimn
  * @Date: 2020-11-23 14:16:28
- * @LastEditors: sueRimn
- * @LastEditTime: 2020-11-23 14:28:33
+ * @LastEditors: wenbin
+ * @LastEditTime: 2021-06-16 15:59:55
 -->
 <template>
   <div class="test-auto-scroll">
+    <testComponent></testComponent>
     <div class="scroll-content">
+      <button @click="cancel">取消订阅</button>
       <div style="height: 100%; padding: 0 20px">
         <template v-for="round in [0, 1]">
           <template class="event-block" v-for="(detail, idx) in dataList">
@@ -25,6 +27,7 @@
 </template>
 
 <script>
+import socketJs from "../../common/utils/socket";
 export default {
   data() {
     return {
@@ -70,8 +73,10 @@ export default {
         },
       ],
       beginIdx: 0,
+      testSocket: null,
     };
   },
+  components: {},
   computed: {
     dataList() {
       this.$nextTick(() => {
@@ -83,11 +88,40 @@ export default {
   },
   mounted() {
     this.scrollView();
+    this.connectSocket();
   },
   beforeDestroy() {
     this.clearInterval();
   },
   methods: {
+    connectSocket() {
+      this.testSocket = new socketJs("http://192.168.30.101:20000/stomp");
+      this.testSocket.connect(() => {
+        // this.testSocket.subscribe(
+        //   "/app/mlink/9QQ3L8EH/deviceinfo/monitor/upload",
+        //   (res) => {
+        //     // console.log("页面参数", res);
+        //     if (res && res.data) {
+        //       this.testSocket.subscribe(res.data.topic, (response) => {
+        //         console.log("topic", response);
+        //       });
+        //     }
+        //   }
+        // );
+        this.testSocket.subscribe("/user/queue/msg", (res) => {
+          console.log("queue", res);
+        });
+        this.testSocket.subscribe("/queue/msg", (res) => {
+          console.log("queueMsg", res);
+        });
+        // this.testSocket.subscribe("/topic/zjw", (res) => {
+        //   console.log("页面参数", res);
+        // });
+      });
+    },
+    cancel() {
+      this.testSocket.sender("/app/send/9QQ3L8EH/msg", { a: 1111, b: 2222 });
+    },
     scrollUp() {
       let beginIdx = this.beginIdx + 1;
       this.beginIdx = beginIdx % this.dataList.length;
@@ -108,6 +142,11 @@ export default {
         this.scrollInterval = null;
       }
     },
+  },
+  beforeDestroy() {
+    if (this.testSocket) {
+      this.testSocket.disconnect();
+    }
   },
 };
 </script>
