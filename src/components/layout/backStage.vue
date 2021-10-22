@@ -3,8 +3,8 @@
  * @version: 
  * @Author: sueRimn
  * @Date: 2020-08-10 10:46:36
- * @LastEditors: sueRimn
- * @LastEditTime: 2020-11-23 14:19:15
+ * @LastEditors: wenbin
+ * @LastEditTime: 2021-06-17 15:48:47
 -->
 <template>
   <a-layout id="components-layout-demo-top-side-2">
@@ -56,6 +56,12 @@
             <span slot="title"><a-icon type="user" />其他测试</span>
             <a-menu-item key="4-1">
               <router-link to="other-test">基本面板</router-link>
+            </a-menu-item>
+          </a-sub-menu>
+          <a-sub-menu key="echart-test">
+            <span slot="title"><a-icon type="user" />图表测试</span>
+            <a-menu-item key="5-1">
+              <router-link to="echart-test">实时图表测试</router-link>
             </a-menu-item>
           </a-sub-menu>
         </a-menu>

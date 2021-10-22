@@ -3,8 +3,8 @@
  * @version:
  * @Author: sueRimn
  * @Date: 2020-06-01 09:23:05
- * @LastEditors: sueRimn
- * @LastEditTime: 2020-11-13 09:44:39
+ * @LastEditors: wenbin
+ * @LastEditTime: 2021-06-17 15:49:28
  */
 
 import Vue from 'vue';
@@ -60,6 +60,11 @@ const routes = [{
       path: 'other-test',
       name: 'otherTest',
       component: () => import('@/views/otherTest/index')
+    },
+    {
+      path: 'echart-test',
+      name: 'echart-test',
+      component: () => import('@/views/echarts/index')
     }
   ]
 }];

@@ -4,7 +4,7 @@
  * @Author: wenbin
  * @Date: 2021-06-01 14:37:50
  * @LastEditors: wenbin
- * @LastEditTime: 2021-06-16 17:33:20
+ * @LastEditTime: 2021-10-22 13:17:30
  * @FilePath: /bi-table-test/src/common/utils/socket.js
  * Copyright (C) 2021 wenbin. All rights reserved.
  */
@@ -51,6 +51,9 @@ class socket {
   disconnect () {
     if (this.stompClient !== null) {
       this.stompClient.disconnect()
+      if (this.timer) {
+        clearInterval(this.timer);
+      }
       console.log('Disconnected')
     }
   }
