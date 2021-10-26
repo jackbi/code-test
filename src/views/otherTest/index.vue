@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-11-23 14:16:28
  * @LastEditors: wenbin
- * @LastEditTime: 2021-10-26 13:56:53
+ * @LastEditTime: 2021-10-26 13:59:20
 -->
 <template>
   <!-- class="test-auto-scroll" -->
@@ -19,6 +19,7 @@
       </el-col>
       <el-col :span="12">
         <el-button type="primary" @click="setToken">设置token</el-button>
+        <el-button type="primary" @click="deleteToken">删除token</el-button>
       </el-col>
     </el-row>
     <el-row style="margin-bottom: 15px;">
@@ -169,6 +170,13 @@ export default {
         localStorage.setItem("token", this.token);
       } else {
         this.$message({ type: "warning", message: "请输入token" });
+      }
+    },
+    deleteToken() {
+      const token = localStorage.getItem("token");
+      if (token) {
+        localStorage.removeItem("token");
+        this.token = "";
       }
     },
     connectSocket() {
