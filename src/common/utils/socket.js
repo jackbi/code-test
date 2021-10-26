@@ -4,7 +4,7 @@
  * @Author: wenbin
  * @Date: 2021-06-01 14:37:50
  * @LastEditors: wenbin
- * @LastEditTime: 2021-10-22 13:17:30
+ * @LastEditTime: 2021-10-26 13:54:46
  * @FilePath: /bi-table-test/src/common/utils/socket.js
  * Copyright (C) 2021 wenbin. All rights reserved.
  */
@@ -30,9 +30,14 @@ class socket {
   }
   connect(callback) {
     this.stompClient = Stomp.over(this.sock)
+    const token = localStorage.getItem('token')
+    let sendData = {};
+    if (token) {
+      sendData.Authorization = `Bearer ${token}`
+    }
     // const token = sessionStorage.getItem('cookieaccess_token')
     // 向服务器发起websocket连接
-    this.stompClient.connect({}, (message) => {
+    this.stompClient.connect(sendData, (message) => {
       // console.log('connect', url);
       // console.log('connect', message);
       // this.subscribe(url)

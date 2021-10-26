@@ -4,11 +4,21 @@
  * @Author: sueRimn
  * @Date: 2020-11-23 14:16:28
  * @LastEditors: wenbin
- * @LastEditTime: 2021-10-22 13:18:11
+ * @LastEditTime: 2021-10-26 13:52:27
 -->
 <template>
   <!-- class="test-auto-scroll" -->
   <div style="width: 100%; height: 100%">
+    <el-row style="margin-bottom: 15px;">
+      <el-col :span="12">
+        <el-input
+          type="text"
+          v-model="token"
+          placeholder="websocket地址"
+        ></el-input>
+        <el-button type="primary" @click="setToken">设置token</el-button>
+      </el-col>
+    </el-row>
     <el-row style="margin-bottom: 15px;">
       <el-col :span="12">
         <el-input
@@ -84,6 +94,7 @@ import socketJs from "../../common/utils/socket";
 export default {
   data() {
     return {
+      token: "",
       socketUrl: "",
       subscribeUrl: "",
       senderUrl: "",
@@ -151,6 +162,13 @@ export default {
     // this.connectSocket();
   },
   methods: {
+    setToken() {
+      if (this.token) {
+        localStorage.setItem("token", this.token);
+      } else {
+        this.$message({ type: "warning", message: "请输入token" });
+      }
+    },
     connectSocket() {
       if (this.socketUrl) {
         this.testSocket = new socketJs("http://192.168.20.28:20000/stomp");
