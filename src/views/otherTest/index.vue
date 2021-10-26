@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-11-23 14:16:28
  * @LastEditors: wenbin
- * @LastEditTime: 2021-10-26 13:59:20
+ * @LastEditTime: 2021-10-26 14:18:21
 -->
 <template>
   <!-- class="test-auto-scroll" -->
@@ -181,7 +181,7 @@ export default {
     },
     connectSocket() {
       if (this.socketUrl) {
-        this.testSocket = new socketJs("http://192.168.20.28:20000/stomp");
+        this.testSocket = new socketJs(this.socketUrl);
         this.testSocket.connect(() => {
           this.isLink = true;
         });
