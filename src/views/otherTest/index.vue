@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-11-23 14:16:28
  * @LastEditors: wenbin
- * @LastEditTime: 2021-10-26 13:52:27
+ * @LastEditTime: 2021-10-26 13:56:53
 -->
 <template>
   <!-- class="test-auto-scroll" -->
@@ -16,6 +16,8 @@
           v-model="token"
           placeholder="websocket地址"
         ></el-input>
+      </el-col>
+      <el-col :span="12">
         <el-button type="primary" @click="setToken">设置token</el-button>
       </el-col>
     </el-row>
