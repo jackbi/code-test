@@ -4,18 +4,14 @@
  * @Author: sueRimn
  * @Date: 2020-11-23 14:16:28
  * @LastEditors: wenbin
- * @LastEditTime: 2021-10-26 14:18:21
+ * @LastEditTime: 2021-12-15 09:41:20
 -->
 <template>
   <!-- class="test-auto-scroll" -->
   <div style="width: 100%; height: 100%">
     <el-row style="margin-bottom: 15px;">
       <el-col :span="12">
-        <el-input
-          type="text"
-          v-model="token"
-          placeholder="websocket地址"
-        ></el-input>
+        <el-input type="text" v-model="token" placeholder="loginId"></el-input>
       </el-col>
       <el-col :span="12">
         <el-button type="primary" @click="setToken">设置token</el-button>
@@ -169,7 +165,7 @@ export default {
       if (this.token) {
         localStorage.setItem("token", this.token);
       } else {
-        this.$message({ type: "warning", message: "请输入token" });
+        this.$message({ type: "warning", message: "请输入loginId" });
       }
     },
     deleteToken() {
