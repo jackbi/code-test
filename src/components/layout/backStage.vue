@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-08-10 10:46:36
  * @LastEditors: wenbin
- * @LastEditTime: 2021-06-17 15:48:47
+ * @LastEditTime: 2021-12-23 09:50:03
 -->
 <template>
   <a-layout id="components-layout-demo-top-side-2">
@@ -62,6 +62,20 @@
             <span slot="title"><a-icon type="user" />图表测试</span>
             <a-menu-item key="5-1">
               <router-link to="echart-test">实时图表测试</router-link>
+            </a-menu-item>
+          </a-sub-menu>
+          <a-sub-menu key="three-js-test">
+            <span slot="title"><a-icon type="user" />threeJs3D测试</span>
+            <a-menu-item key="6-1">
+              <router-link to="three-js-test">立方体测试</router-link>
+            </a-menu-item>
+          </a-sub-menu>
+          <a-sub-menu key="web-components-test">
+            <span slot="title"><a-icon type="user" />webComponent测试</span>
+            <a-menu-item key="7-1">
+              <router-link to="web-components-test"
+                >webComponent-test1</router-link
+              >
             </a-menu-item>
           </a-sub-menu>
         </a-menu>
