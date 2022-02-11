@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-11-23 14:16:28
  * @LastEditors: wenbin
- * @LastEditTime: 2021-12-15 09:41:20
+ * @LastEditTime: 2022-02-11 11:52:18
 -->
 <template>
   <!-- class="test-auto-scroll" -->
@@ -90,6 +90,7 @@
 
 <script>
 import socketJs from "../../common/utils/socket";
+import Cookie from "js-cookie";
 export default {
   data() {
     return {
@@ -164,6 +165,7 @@ export default {
     setToken() {
       if (this.token) {
         localStorage.setItem("token", this.token);
+        Cookie.set("auth_token", this.token);
       } else {
         this.$message({ type: "warning", message: "请输入loginId" });
       }
@@ -173,6 +175,7 @@ export default {
       if (token) {
         localStorage.removeItem("token");
         this.token = "";
+        Cookie.remove("auth_token");
       }
     },
     connectSocket() {
@@ -184,6 +187,9 @@ export default {
       } else {
         this.$message({ type: "warning", message: "请输入连接" });
       }
+
+      window.hookAJAX(this.token);
+
       // this.testSocket = new socketJs("http://192.168.20.28:20000/stomp");
       // this.testSocket.connect(() => {
       //   this.isLink = true;
