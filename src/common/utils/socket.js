@@ -4,7 +4,7 @@
  * @Author: wenbin
  * @Date: 2021-06-01 14:37:50
  * @LastEditors: wenbin
- * @LastEditTime: 2021-12-15 09:40:18
+ * @LastEditTime: 2022-01-21 17:36:16
  * @FilePath: /bi-table-test/src/common/utils/socket.js
  * Copyright (C) 2021 wenbin. All rights reserved.
  */
@@ -41,8 +41,8 @@ class socket {
     this.stompClient.connect(
       sendData,
       (message) => {
-        // console.log('connect', url);
-        // console.log('connect', message);
+        // console.log("connect", url);
+        // console.log("connect", message);
         // this.subscribe(url)
         if (this.timer) {
           console.log("成功");

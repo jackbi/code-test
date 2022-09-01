@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-06-01 09:23:05
  * @LastEditors: wenbin
- * @LastEditTime: 2021-12-23 09:50:34
+ * @LastEditTime: 2022-01-27 11:25:07
  */
 
 import Vue from "vue";
@@ -77,6 +77,16 @@ const routes = [
         path: "web-components-test",
         name: "web-components-test",
         component: () => import("@/views/webComponent/index"),
+      },
+      {
+        path: "handsontable-test",
+        name: "handsontable-test",
+        component: () => import("@/views/hansontable/index"),
+      },
+      {
+        path: "handsontable-test2",
+        name: "handsontable-test2",
+        component: () => import("@/views/hansontable/createTable"),
       },
     ],
   },

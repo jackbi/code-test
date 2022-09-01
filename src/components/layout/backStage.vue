@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-08-10 10:46:36
  * @LastEditors: wenbin
- * @LastEditTime: 2021-12-23 09:50:03
+ * @LastEditTime: 2022-01-27 11:24:43
 -->
 <template>
   <a-layout id="components-layout-demo-top-side-2">
@@ -76,6 +76,17 @@
               <router-link to="web-components-test"
                 >webComponent-test1</router-link
               >
+            </a-menu-item>
+          </a-sub-menu>
+          <a-sub-menu key="handsontable-test">
+            <span slot="title"><a-icon type="user" />handsontable测试</span>
+            <a-menu-item key="8-1">
+              <router-link to="handsontable-test"
+                >handsontable-test1</router-link
+              >
+            </a-menu-item>
+            <a-menu-item key="8-2">
+              <router-link to="handsontable-test2">创建表格</router-link>
             </a-menu-item>
           </a-sub-menu>
         </a-menu>
