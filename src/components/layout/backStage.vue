@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-08-10 10:46:36
  * @LastEditors: wenbin
- * @LastEditTime: 2022-01-27 11:24:43
+ * @LastEditTime: 2022-10-17 10:00:52
 -->
 <template>
   <a-layout id="components-layout-demo-top-side-2">
@@ -17,7 +17,12 @@
           mode="inline"
           :default-selected-keys="['mxgraph-text']"
           :default-open-keys="['mxgraph-text']"
-          :style="{ height: '100%', borderRight: 0 }"
+          :style="{
+            height: '100%',
+            borderRight: 0,
+            'overflow-y': 'auto',
+            'overflow-x': 'hidden',
+          }"
         >
           <a-sub-menu key="mxgraph-text">
             <span slot="title"><a-icon type="user" />mxgraph-text</span>
@@ -87,6 +92,18 @@
             </a-menu-item>
             <a-menu-item key="8-2">
               <router-link to="handsontable-test2">创建表格</router-link>
+            </a-menu-item>
+          </a-sub-menu>
+          <a-sub-menu key="bpmn-test">
+            <span slot="title"><a-icon type="user" />bpmn测试</span>
+            <a-menu-item key="9-1">
+              <router-link to="bpmn-test">bpmn-绘制测试</router-link>
+            </a-menu-item>
+          </a-sub-menu>
+          <a-sub-menu key="fullcalendar-test">
+            <span slot="title"><a-icon type="user" />日历测试</span>
+            <a-menu-item key="10-1">
+              <router-link to="fullcalendar-test">日历测试</router-link>
             </a-menu-item>
           </a-sub-menu>
         </a-menu>

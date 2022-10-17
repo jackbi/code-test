@@ -1,10 +1,12 @@
+<!-- @format -->
+
 <!--
  * @Description: 
  * @Version: 1.0
  * @Author: wenbin
  * @Date: 2021-06-17 15:47:01
  * @LastEditors: wenbin
- * @LastEditTime: 2021-06-18 14:59:29
+ * @LastEditTime: 2022-09-02 14:56:53
  * @FilePath: /bi-table-test/src/views/echarts/index.vue
  * Copyright (C) 2021 wenbin. All rights reserved.
 -->

@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-06-01 09:23:05
  * @LastEditors: wenbin
- * @LastEditTime: 2022-01-27 11:25:07
+ * @LastEditTime: 2022-10-17 09:52:36
  */
 
 import Vue from "vue";
@@ -87,6 +87,16 @@ const routes = [
         path: "handsontable-test2",
         name: "handsontable-test2",
         component: () => import("@/views/hansontable/createTable"),
+      },
+      {
+        path: "bpmn-test",
+        name: "bpmn-test",
+        component: () => import("@/views/bpmn/index"),
+      },
+      {
+        path: "fullcalendar-test",
+        name: "fullcalendar-test",
+        component: () => import("@/views/fullcalendar/index"),
       },
     ],
   },

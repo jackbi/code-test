@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-06-01 09:23:05
  * @LastEditors: wenbin
- * @LastEditTime: 2022-02-11 10:38:51
+ * @LastEditTime: 2022-09-01 14:13:11
  */
 
 import Vue from "vue";
@@ -23,6 +23,11 @@ import "element-ui/lib/theme-chalk/index.css";
 import "./utils/plugin";
 import "./utils/flexible.js";
 import "./utils/webcomponents";
+
+import "bpmn-js/dist/assets/diagram-js.css"; // 左边工具栏以及编辑节点的样式
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 
 Vue.use(ElementUI);
 Vue.prototype.$handsontable = Handsontable;
